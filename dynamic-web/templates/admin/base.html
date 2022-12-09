@@ -1,0 +1,16 @@
+{% extends "layout.html" %} {% block body %}
+<div class="grid-container">
+   <div class="navigation-bar grid-item-row-1">
+      <div class="navigation-bar-left">
+         <div>
+            {% if 'username' in session %}
+            <a href="/logout/">Sign out</a> {% else %}
+            <a href="/login/">Sign in</a> {% endif %}
+         </div>
+      </div>
+   </div>
+   <div class="grid-item-row-2">
+      {% block admin %}{% endblock%}
+   </div>
+</div>
+{% endblock%}

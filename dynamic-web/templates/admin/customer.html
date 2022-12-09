@@ -1,0 +1,97 @@
+{% extends "admin/base.html" %} {% block admin %}
+<!-- Using bulma to organize this admin area. See https://bulma.io/documentation/overview/ -->
+<div class="container is-fluid">
+   <!-- Admin specific menu header begins here. We are using bulma CSS tabs class with is-boxed specifier -->
+   <div class="tabs is-toggle is-toggle-rounded is-medium">
+      <ul>
+         <li><a href="/admin/products/">Products</a></li>
+         <li class="is-active"><a>Customer Info</a></li>
+      </ul>
+   </div>
+   <!-- Admin specific menu ends here -->
+   <div class="container is-fluid">
+      <!-- Put an Add New Customer link-->
+      <a class="fa fa-plus" onclick="addIsActiveClassToElement('customer-add')">Add a new customer</a>
+      <!-- Put a modal customer add form here following bulma CSS approach. Inactive by default-->
+      <div id="customer-add" class="modal">
+         <div class="modal-background"></div>
+         <div class="modal-card">
+            <form method="post" action="/admin/customer/process-customer-add/">
+               <header class="modal-card-head">
+                  <p class="modal-card-title">Add a new customer</p>
+               </header>
+               <section class="modal-card-body">
+                  <div class="field">
+                     <label class="label">Name</label>
+                     <div class="control">
+                        <input name="type" class="input" type="text" placeholder="Enter the name of the customer" maxlength="20" required>
+                     </div>
+                     <p class="help">Enter the name of the customer</p>
+                  </div>
+                  <div class="field">
+                     <label class="label">Customer's email</label>
+                     <div class="control">
+                        <input name="email" class="input" type="text" placeholder="Enter the customer's email" maxlength="30" required>
+                     </div>
+                     <p class="help">Enter the customer's email</p>
+                  </div>
+                  <div class="field">
+                     <label class="label">Phone number</label>
+                     <div class="control">
+                        <input name="Phone_number" class="input" type="text" placeholder="Enter the customer's number" maxlength="15" required>
+                     </div>
+                     <p class="help">Enter the customer's number</p>
+                  </div>
+                  <div class="field">
+                     <label class="label">Customer's Address</label>
+                     <div class="control">
+                        <input name="address" class="input" type="text" placeholder="Enter the customer's address" maxlength="40" required>
+                     </div>
+                     <p class="help">Enter the customer's address</p>
+                  </div>
+               </section>
+               <footer class="modal-card-foot">
+                  <input type="submit" class="button is-success" value="Submit">
+                  <input class="button is-danger" value="Cancel" onclick="removeIsActiveClassFromElement('customer-add')">
+               </footer>
+            </form>
+         </div>
+         <button class="modal-close" aria-label="close" onclick="removeIsActiveClassFromElement('customer-add')"></button>
+      </div>
+      <!-- modal add form ends here -->
+      <!-- Show existing Customers using bulma table class -->
+      <table class="table is-fullwidth is-hoverable ">
+         <thead>
+            <tr>
+               <th>Customer Name</th>
+               <th>E-mail</th>
+               <th>Phone number</th>
+               <th>Address</th>
+               <th>&nbsp;</th>
+               <th>&nbsp;</th>
+               <th>&nbsp;</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for Customer in customer %}
+            <tr>
+               <th>{{Customer.name}}</th>
+               <td>{{Customer.email}}</td>
+               <td>{{Customer.Phone_number}}</td>
+               <td>{{Customer.address}}</td>
+               <td><a class="button" href="/admin/products/edit/{{product.id}}/">Manage</a></td>
+               <td><a class="button" href="/admin/products/delete/{{product.id}}/" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </div>
+</div>
+<script>
+   function addIsActiveClassToElement(elementId){
+   var element = document.getElementById(elementId); element.classList.add("is-active");
+   }
+   function removeIsActiveClassFromElement(elementId){
+   var element = document.getElementById(elementId);
+   element.classList.remove("is-active"); }
+</script> {% endblock%}

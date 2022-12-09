@@ -1,0 +1,204 @@
+.navigation-bar div {
+    padding: 5px 7.5px 5px 10px;
+}
+
+.navigation-bar {
+    background-color: #000000;
+    color: purple;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.navigation-bar-left, .navigation-bar-right{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navigation-bar-left{
+    flex:2;
+    text-color: black;
+}
+
+.navigation-bar-right{
+    flex:1;
+}
+
+.navigation-bar-right{
+    justify-content: flex-end;
+}
+
+.content-with-background-image2{
+    background-color: #a2d7ff;;
+    background-attachment: scroll;
+    background-size: auto 1200px; background-repeat: no-repeat;
+    height: 500px;
+    font-size: 2em;
+    border: 1px solid #a2d7ff;
+    padding: 10px 15px 10px 20px;
+    /*margin: 10px;*/
+}
+
+.content-with-background-color{
+    min-height: 180px;
+    background-color: #a2d7ff;
+    font-size: 1.5em;
+    border: 1px solid #a2d7ff; padding: 10px 15px 10px 20px;
+    /*margin: 10px;*/
+    color: #000000;
+    opacity: .8;
+}
+
+html{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif
+ }
+
+.grid-container{
+    display:grid;
+    /*grid-template-columns: auto auto auto; /*3 define 3 columns of equal sizes*/
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-areas:
+    "navigation navigation navigation"
+    "bg-image1 bg-image1 bg-image1"
+    "article1 article2 article3"
+    "bg-image2 bg-image2 bg-image2";
+    gap: 0 10px; /* gap creates a space between grid areas. The first value is row-gap and the second column-gap*/
+}
+
+.grid-item-row-1{
+    grid-area: navigation;
+}
+
+.grid-item-row-2{
+    grid-area: bg-image1;
+}
+
+.grid-item-col-1-row-3{
+    grid-area: article1;
+}
+
+.grid-item-col-2-row-3{
+    grid-area: article2;
+}
+
+.grid-item-col-3-row-3{
+    grid-area: article3;
+}
+
+.grid-item-row-4{
+    grid-area: bg-image2;
+}
+
+@media(max-width: 420px){
+    .grid-container{
+    grid-template-areas:
+    "navigation"
+    "bg-image1"
+    "article1"
+    "article2"
+    "article3"
+    "bg-image2";
+    }
+}
+
+/* Additional classes for menu items */
+.navigation-bar a {
+    color: white; /* force color for links to be white and not whatever the default may be*/
+    text-decoration: none; /* ensures that there is no underline*/
+}
+
+.navigation-bar .active{
+    color: yellow; /* when the link is active, use yellow instead of white */ text-decoration: none;
+    font-weight: bold;
+}
+.form-grid{
+    display: grid; grid-template-columns: auto auto;
+    gap: 1px;
+    width: 20%;
+    padding: 10px;
+}
+.form-grid input, .form-grid label, .form-grid legend, .form-grid a{
+    font-size: 1.2em; }
+.form-grid label{
+    text-align: right;
+}
+.form-grid .button{
+    height: 2em;
+    width: 35%;
+    colour: purple;
+    cursor: pointer;
+}
+
+body {
+    background-color: #a2d7ff;
+}
+
+.btn {
+    display: inline-block;
+    background: #a688d5;
+    color: black;
+    padding: 0.4rem 1.3rem;
+    font-size: 1 rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    outline: none;
+    box-shadow: 0 1px 0 rgba(0,0,0, 0.45);
+    border-radius: 2px;
+}
+
+.btn.hover{
+    opacity: 0.9;
+}
+
+.btn-rounded{
+    border-radius: 5px;
+}
+
+.btn-xl{
+    font-size: 2rem;
+    padding: 2.5rem: 2.5rem;
+    text-transform: Uppercase;
+    border-radius: 10px;
+}
+
+.Sign-in{
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20rem;
+}
+
+.form-grid{
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 15rem;
+}
+
+.dont-have{
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 15rem;
+    gap: 0px;
+    width: 20%;
+    padding: 60px;
+}
+
+.modal-card{
+  overflow: scroll;
+}

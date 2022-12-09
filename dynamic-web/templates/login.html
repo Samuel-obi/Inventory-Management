@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="grid-container">
+    <div class="navigation-bar grid-item-row-1">
+    </div>
+        <div class="grid-item-row-2">
+            <form method="post" action="/process-login/">
+                <div class="form-grid">
+                    <label>Email: </label><input type="email" name="email" placeholder="Enter email address here" required>
+                    <label>Password: </label><input type="password" name="password" placeholder="Enter password here" required>
+                    &nbsp;<input type="submit" value="Login" class="button">
+                </div>
+                <div class="dont-have">
+                    <label>Don't have an account? </label> <a href="/signup">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock%}

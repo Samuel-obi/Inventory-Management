@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="grid-container">
+        <div class="grid-item-row-2">
+            <h2 class="signup-title">{{title}}: {{information}}</h2>
+            <form method="post" action="/process-signup/">
+                <div class="form-grid">
+                    <label>First Name: </label><input type="text" name="firstname" required maxlength="20">
+                    <label>Last Name: </label><input type="text" name="lastname" required maxlength="20">
+                    <label>Email: </label><input type="email" name="email" placeholder="Enter a valid email address here" required maxlength="50">
+                    <label>Password: </label><input type="password" name="password" placeholder="Enter password here" required maxlength="50">
+                    &nbsp;<input type="submit" value="Submit" class="button">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="content-with-background-image2 grid-item-row-4">
+      </div>
+</div>
+{% endblock%}
